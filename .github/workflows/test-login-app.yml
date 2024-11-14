@@ -37,11 +37,14 @@ jobs:
           api-level: 30
           build-tools: 30.0.3
           
+      - name: List files to check the structure (for debugging)
+        run: ls -R  # Isso irá listar todos os arquivos para garantir que LoginApp/gradlew está acessível.
+        
       - name: Give execute permission to gradlew
         run: chmod +x ./LoginApp/gradlew  # Adiciona permissões de execução ao script gradlew
         
       - name: Build the app
-        run: ./LoginApp/gradlew build  # Executa o comando de build
+        run: ./LoginApp/gradlew build  # Executa o comando de build com o caminho correto
         
       - name: Run Instrumented Tests
         run: ./LoginApp/gradlew connectedAndroidTest  # Executa os testes instrumentados
